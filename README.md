@@ -1,8 +1,8 @@
-A firefox plugin to save selected text into file. 
-1. Download saveselected.xpi
-2. Drag to firefox
-3. Install
-4. Restart
+A firefox plugin to save selected text into file. <br/>
+1. Download saveselected.xpi <br/>
+2. Drag to firefox<br/>
+3. Install<br/>
+4. Restart<br/>
 
 Hurrah !!!<br/>
 Sagar Pathak
