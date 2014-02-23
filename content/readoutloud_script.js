@@ -1,5 +1,4 @@
 function readoutloud_function(){
-<<<<<<< HEAD
 	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 	//getting platform type
 	getPlatform= navigator.platform.toLowerCase().split(" ");
@@ -57,6 +56,5 @@ sstream.init(inputStream);
 var output = sstream.read(sstream.available());
  
 alert(output);
->>>>>>> 03173fbb44573d19c3afa2c32a866a602e06a7b6
 } 
 

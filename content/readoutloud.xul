@@ -1,8 +1,6 @@
 <?xml version="1.0"?>                 
 <overlay id="Scrapper-Overlay"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-<<<<<<< HEAD
 <script charset="utf-8" type="application/x-javascript" src="chrome://readoutloud/content/readoutloud_script.js" />
 =======
 <script type="application/x-javascript" src="chrome://readoutloud/content/readoutloud_script.js" />
@@ -15,11 +13,7 @@ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
         label="READ" oncommand="readoutloud_function()" />
   </toolbar>
 </toolbox>
-<<<<<<< HEAD
 <keyset id="mainKeyset"> 
 	<key id="key_convert" key="z" modifiers="accel alt" oncommand="readoutloud_function()"/> 
 </keyset>
-=======
->>>>>>> 03173fbb44573d19c3afa2c32a866a602e06a7b6
-
 </overlay>
