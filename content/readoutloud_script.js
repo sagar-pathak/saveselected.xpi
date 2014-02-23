@@ -1,5 +1,15 @@
 function readoutloud_function(){
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	const Cc = Components.classes;
+	const Ci = Components.interfaces;
+	const Cu = Components.utils;
+	const Cr = Components.results;
+	//var {Cc, Ci, Cu} = require("chrome");
+	var {FileUtils} = Cu.import("resource://gre/modules/FileUtils.jsm");
+
+	var file = Cc['@mozilla.org/file/local;1']
+		   .createInstance(Ci.nsILocalFile);
+
+	//file.initWithPath('C:\\temp\\temp.txt');
 	//getting platform type
 	getPlatform= navigator.platform.toLowerCase().split(" ");
 	var platform = getPlatform[0];
@@ -16,20 +26,31 @@ function readoutloud_function(){
 		return;
 	}
 
+	if(!file.exists()){
+	  file.create(file.NORMAL_FILE_TYPE, 0666);
+	}
 	// WRITE
-	var text = content.getSelection().toString();
-	//'\u091C\u093E\u0935\u093E\u0938\u094D\u0915\u094D\u0930\u093F\u092A\u094D\u091F'+
-	var outputStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
-	outputStream.init(file, 0x04 | 0x08, 00002, 0); //read and write | create file | 0x10 = append
-	outputStream.write(text, text.length);
+	var data = content.getSelection();
+	var charset = 'UTF-8';
+	var fileStream = Cc['@mozilla.org/network/file-output-stream;1'].createInstance(Ci.nsIFileOutputStream);
+	fileStream.init(file, FileUtils.MODE_WRONLY | FileUtils.MODE_CREATE | FileUtils.MODE_APPEND, 0x200, false);
+
+	var converterStream = Cc['@mozilla.org/intl/converter-output-stream;1'].createInstance(Ci.nsIConverterOutputStream);
+
+	converterStream.init(fileStream, charset, data.length,Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
+	converterStream.writeString(data);
+	converterStream.close();
+	fileStream.close();
+
 
 	// READ
+	var input = {};
 	var inputStream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);
-	var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance(Components.interfaces.nsIScriptableInputStream);
-	inputStream.init(file, 0x04, 00004, 0);
-	sstream.init(inputStream);
-	var output = sstream.read(sstream.available());
-	 
-	alert(text);
+	var converter = Components.classes["@mozilla.org/intl/converter-input-stream;1"].createInstance(Components.interfaces.nsIConverterInputStream);
+	inputStream.init(file, 0x01, 0444, null);
+        converter.init(inputStream, "UTF-8", 0, 0x0000);
+	converter.readString(inputStream.available(), input);
+	
+	alert(data + ' this is output '+input);
 } 
 
