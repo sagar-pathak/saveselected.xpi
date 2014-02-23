@@ -17,8 +17,8 @@ function readoutloud_function(){
 	}
 
 	// WRITE
-	var text = content.getSelection().toString();
-	//'\u091C\u093E\u0935\u093E\u0938\u094D\u0915\u094D\u0930\u093F\u092A\u094D\u091F'+
+	var text = '\u091C\u093E\u0935\u093E\u0938\u094D\u0915\u094D\u0930\u093F\u092A\u094D\u091F'+content.getSelection().toString();
+
 	var outputStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
 	outputStream.init(file, 0x04 | 0x08, 00002, 0); //read and write | create file | 0x10 = append
 	outputStream.write(text, text.length);
