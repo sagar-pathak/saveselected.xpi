@@ -2,10 +2,6 @@
 <overlay id="Scrapper-Overlay"
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 <script charset="utf-8" type="application/x-javascript" src="chrome://readoutloud/content/readoutloud_script.js" />
-=======
-<script type="application/x-javascript" src="chrome://readoutloud/content/readoutloud_script.js" />
->>>>>>> 03173fbb44573d19c3afa2c32a866a602e06a7b6
-
 <toolbox id="navigator-toolbox">
   <toolbar id="readoutloud_id" toolbarname="Read Out Loud" >
       <label value="Read Out Loud: "/>        
