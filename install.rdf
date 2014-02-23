@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?><RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"     xmlns:em="http://www.mozilla.org/2004/em-rdf#"><Description about="urn:mozilla:install-manifest">
+=======
 <?xml version="1.0"?><RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"     xmlns:em="http://www.mozilla.org/2004/em-rdf#"><Description about="urn:mozilla:install-manifest">
+>>>>>>> 03173fbb44573d19c3afa2c32a866a602e06a7b6
 
 <!-- Required Items -->
 <em:id>sagar@sagarpathak.com</em:id>
